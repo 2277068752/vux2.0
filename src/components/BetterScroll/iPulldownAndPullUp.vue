@@ -145,7 +145,6 @@
           startY: this.startY,
           freeScroll: this.freeScroll
         }
-        debugger
         this.scroll = new BScroll(this.$refs.wrapper, options)
         if (this.listenScroll) {
           this.scroll.on('scroll', (pos) => {
@@ -270,8 +269,8 @@
 
 <style lang="less" rel="stylesheet/less" scoped>
   .scroll-loading {
-    width: 20px;
-    height: 20px;
+    width: 20PX;
+    height: 20PX;
   }
 
   .pulldown-wrapper {
@@ -286,7 +285,7 @@
   }
 
   .pulldown-wrapper .after-trigger {
-    margin-top: 10px
+    margin-top: 10PX
   }
 
   .pullup-wrapper {
@@ -294,7 +293,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px 0;
+    padding: 16PX 0;
   }
 
 </style>

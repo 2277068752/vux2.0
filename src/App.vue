@@ -8,7 +8,7 @@
       <div class="page-wrap">
         <!--endregion-->
         <transition :name="transitionName" @after-enter="afterEnter">
-          <router-view class="router-view"></router-view>
+          <router-view keep-alive class="router-view"></router-view>
         </transition>
       </div>
       <!--endregion-->

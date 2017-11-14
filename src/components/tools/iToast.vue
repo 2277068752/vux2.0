@@ -3,8 +3,7 @@
     <div class='weui_mask_transparent'></div>
     <div class='center-container is-table'>
       <div class='table-cell'>
-        <div class='center-block' id='iToastDiv'>
-          {{text}}
+        <div class='center-block' id='iToastDiv' v-html="text">
         </div>
       </div>
     </div>
@@ -14,7 +13,7 @@
 <style lang="less" rel="stylesheet/less">
   .i-toast-contain {
     position: fixed;
-    top: 50%;
+    top: e("calc(50% - 17.5PX)");
     width: 100%;
     z-index: 5001;
     @modalDuration: 400ms;
@@ -39,11 +38,11 @@
       transition-property: transform, opacity;
       color: white;
       background: rgba(0, 0, 0, 0.8);
-      border-radius: 0.4rem;
-      padding: 0 0.8rem;
-      min-height: 2.1rem;
-      line-height: 2.1rem;
-      font-size: 14px;
+      border-radius: 0.4em;
+      padding: 0 12PX;
+      min-height: 35PX;
+      line-height: 35PX;
+      font-size: 14PX;
       &.modal-in {
         opacity: 1;
         transition-duration: @modalDuration;
@@ -90,9 +89,9 @@
           this.$emit('input', true)
           this.$nextTick(() => {
             let modal = document.getElementById('iToastDiv')
-            let size = textSize('14px', this.text)
-            if (size.width + getStyle(modal, 'padding-right') * 2 < modal.offsetWidth && modal.offsetWidth) {
-              modal.style.width = size.width + 'px'
+            let size = textSize('14PX', this.text)
+            if (size.width + 12 * 2 < modal.offsetWidth && modal.offsetWidth) {
+              modal.style.width = size.width + 'PX'
             } else {
               modal.style.width = '80%'
             }
@@ -119,18 +118,6 @@
   }
 
   // region utils
-  function getStyle (oElm, strCssRule) {
-    let strValue = ''
-    if (document.defaultView && document.defaultView.getComputedStyle) {
-      strValue = document.defaultView.getComputedStyle(oElm, '').getPropertyValue(strCssRule)
-    } else if (oElm.currentStyle) {
-      strCssRule = strCssRule.replace(/\\-(\w)/g, function (strMatch, p1) {
-        return p1.toUpperCase()
-      })
-      strValue = oElm.currentStyle[strCssRule]
-    }
-    return strValue.replace('px', '')
-  }
 
   // 计算字符串宽度
   function textSize (fontSize, text) {
@@ -158,6 +145,7 @@
       el.className += ' ' + className
     }
   }
+
   function removeClass (el, className) {
     if (el.classList) {
       el.classList.remove(className)
@@ -165,5 +153,6 @@
       el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ')
     }
   }
+
   // endregion
 </script>

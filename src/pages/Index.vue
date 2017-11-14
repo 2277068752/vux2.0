@@ -69,7 +69,10 @@
       text-align: center;
       padding: 20px 0;
       .logo-error, .logo-success {
-        width: 60px;
+        width: 120px;
+      }
+      p {
+        font-size: 28px;
       }
     }
   }

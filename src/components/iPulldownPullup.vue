@@ -127,11 +127,11 @@
       transition: all linear 0.2s;
       -webkit-transition: all linear 0.2s;
       color: #666;
-      font-size: 18px;
+      font-size: 36px;
       display: inline-block;
     }
     .pull-txt {
-      font-size: 13px;
+      font-size: 26px;
     }
   }
 </style>

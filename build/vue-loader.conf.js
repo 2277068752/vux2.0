@@ -9,10 +9,15 @@ module.exports = {
       : config.dev.cssSourceMap,
     extract: isProduction
   }),
-  transformToRequire: {
-    video: 'src',
-    source: 'src',
-    img: 'src',
-    image: 'xlink:href'
-  }
+  postcss: [
+    require('postcss-plugin-px2rem')({
+      rootValue: 75, // 这里对应的是750的设计图尺寸
+      selectorBlackList: ['html'],
+      mediaQuery: true,
+      propBlackList: ['border-radius', 'border'] // 如果要保持font-size不转换，替换为 ['font-size']
+    }),
+    require('autoprefixer')({
+      browsers: ['iOS >= 7', 'Android >= 4.1']
+    })
+  ]
 }

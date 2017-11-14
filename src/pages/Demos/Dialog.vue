@@ -7,12 +7,12 @@
       <cell title="ScrollDialog" is-link @click.native="showScrollDialog=true"></cell>
     </group>
     <x-dialog v-model="showDialog">
-      <p style="font-size: 12px;">dialog 弹窗</p>
-      <div><img src="../../assets/images/logo.png" style="width: 50px;"/></div>
+      <p style="font-size: 14px;">dialog 弹窗</p>
+      <div><img src="../../assets/images/logo.png" style="width: 60px;"/></div>
       <span class="vux-close" @click="showDialog=false"></span>
     </x-dialog>
     <i-scroll-dialog v-model="showScrollDialog">
-      <div>
+      <div class="dialog-text">
         <p v-for="i in 100">{{i}}</p>
       </div>
     </i-scroll-dialog>
@@ -33,7 +33,8 @@
     mounted () {},
     methods: {
       showToast () {
-        this.$vux.toast.show({text: '说点什么呢~~~'})
+        // 显示文字
+        this.$vux.toast.show({text: '请输入正确的姓名'})
       },
       showAlert () {
         let _this = this
@@ -52,5 +53,8 @@
 <style lang="less" rel="stylesheet/less" scoped>
   .dialog-page {
     background-color: #fff;
+    .dialog-text {
+      font-size: 30px;
+    }
   }
 </style>

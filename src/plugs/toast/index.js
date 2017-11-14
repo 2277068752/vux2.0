@@ -2,7 +2,6 @@ import ToastComponent from '../../components/tools/iToast.vue'
 
 let $vm
 let watcher
-
 export default {
   install (vue, options) {
     const Toast = vue.extend(ToastComponent)

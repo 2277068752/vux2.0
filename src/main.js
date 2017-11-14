@@ -6,6 +6,7 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import config from '../config/index'
 import routers from './router'
+import 'lib-flexible'
 
 Vue.config.productionTip = false
 

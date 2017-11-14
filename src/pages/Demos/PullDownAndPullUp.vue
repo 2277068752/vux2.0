@@ -118,8 +118,8 @@
     right: 0;
     text-align: center;
     z-index: 9;
-    height: 40px;
-    line-height: 40px;
+    height: 80px;
+    line-height: 80px;
     color: #fff;
     background-color: #009a61;
   }
@@ -142,22 +142,21 @@
   }
 
   .list-item {
-    height: 60px;
-    line-height: 60px;
-    font-size: 18px;
-    padding-left: 20px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 36px;
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
   }
 
   .go-top {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 20PX;
+    bottom: 20PX;
     background-color: #009a61;
-    border-radius: 5px;
+    border-radius: 5PX;
     border: 1px solid #fff;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10PX 15PX;
   }
 </style>
