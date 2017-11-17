@@ -1,20 +1,22 @@
 <template>
   <div class="hide-input-component">
-    <x-input :title="title" v-model="currentValue" v-show="(autoHide&&currentValue.length!==length)||showInput"
-             :placeholder="placeholder" :keyboard="keyboard" ref="idCardInput" @on-blur="onBlur"></x-input>
-    <cell :title="hideValue" @click.native="idCardClick"
-          v-show="(!autoHide||currentValue.length==length)&&!showInput" :class="txtClass">
-      <div slot="icon" :class="titleClass">
-        {{title}}
-      </div>
-    </cell>
+    <group title="">
+      <x-input :title="title" v-model="currentValue" v-show="(autoHide&&currentValue.length!==length)||showInput"
+               :placeholder="placeholder" :keyboard="keyboard" ref="idCardInput" @on-blur="onBlur"></x-input>
+      <cell :title="hideValue" @click.native="idCardClick"
+            v-show="(!autoHide||currentValue.length==length)&&!showInput" :class="txtClass">
+        <div slot="icon" :class="titleClass">
+          {{title}}
+        </div>
+      </cell>
+    </group>
   </div>
 </template>
 <script>
-  import { XInput, Cell } from 'vux'
+  import { XInput, Cell, Group } from 'vux'
 
   export default {
-    components: {XInput, Cell},
+    components: {XInput, Cell, Group},
     props: {
       type: String,
       value: String,
@@ -97,25 +99,34 @@
 
 <style lang="less" rel="stylesheet/less">
   .hide-input-component {
+    .weui-cells:before{
+      border-width: 0;
+    }
+    .weui-cell__ft {
+      color: #333;
+    }
     .weui-label {
       width: 4.2em !important;
-      text-align: right;
       margin-right: 1em;
     }
-    .left {
-      p {
+    .title_right {
+      .weui-label {
         text-align: right;
       }
+    }
+    .title_left {
+      .weui-label {
+        text-align: left;
+      }
+    }
+    .txt_left {
       .vux-cell-bd {
         p {
           text-align: left;
         }
       }
     }
-    .right {
-      .weui-label {
-        text-align: left;
-      }
+    .txt_right {
       .vux-cell-bd {
         p {
           text-align: right;
